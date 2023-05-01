@@ -1,0 +1,13 @@
+﻿{
+  "name": "com.hdyar.simplesostatemachine",
+  "version": "0.0.1",
+  "displayName": "Simple SO State Machine",
+  "description": "A State Machine Scriptable Object, with easily referenceble and manageble child 'state' assets.",
+  "unity": "2021.1",
+  "unityRelease": "0b5",
+  "author": {
+    "name": "Hunter Dyar",
+    "email": "me@hdyar.com",
+    "url": "https://www.hdyar.com"
+  }
+}
