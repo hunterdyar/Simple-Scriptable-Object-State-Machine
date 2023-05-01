@@ -16,3 +16,7 @@ This machine does not include transitions. It does NOT check if it should switch
 The state machine lives in a scriptableObject, and there can only be one. There is not a monobehaviour/runtime isntance of the machine that can be repeated. Consider, it could not be used for AI if you are spawning in multiple enemies, as they would all share the same state.
 This is not a limitation, but a design decision. Such a system can use a different implemetation of the state machine pattern. This setup is designed to be used for more global elements, things like game state, menu logic, or player input status.
 
+## Other Projects
+A few years ago I created [SOStateMachine](https://github.com/hunterdyar/SOStateMachine/), which is the same project. This one uses sub-assets for states, and is much simpler: no transitions or conditions, the flow logic must be implemented elsewhere. I found myself not using that more complex project because it was too much for my use cases.
+
+This project is an attempt at adding some convenience and ergonomics to a pretty simple state system need.
