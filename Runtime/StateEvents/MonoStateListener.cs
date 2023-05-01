@@ -7,6 +7,7 @@ namespace HDyar.SimpleSOStateMachine
 	/// </summary>
 	public class MonoStateListener : MonoBehaviour, IStateListener
 	{
+		[Tooltip("The State to listen to. States are sub-assets of the desired machine.")]
 		[SerializeField] private State _state;
 
 		private void Awake()
