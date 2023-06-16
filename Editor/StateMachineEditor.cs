@@ -20,6 +20,10 @@ using StateMachine = HDyar.SimpleSOStateMachine.StateMachine;
 		{
 			Undo.undoRedoPerformed += UndoRedoPerformed;
 			_machine = (target as StateMachine);
+			if (_machine == null)
+			{
+				Debug.LogError("target null in state machine editor.");
+			}
 			statesProp = serializedObject.FindProperty("states");
 			stateList = new ReorderableList(
 				serializedObject,
