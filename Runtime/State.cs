@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+
+#if  UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace HDyar.SimpleSOStateMachine
 {
@@ -28,7 +31,7 @@ namespace HDyar.SimpleSOStateMachine
 
 		private List<IStateListener> _listeners = new List<IStateListener>();
 		
-		public void Enter()
+		internal void Enter()
 		{
 			foreach (var listener in _listeners)
 			{
@@ -38,7 +41,7 @@ namespace HDyar.SimpleSOStateMachine
 			OnEnter.Invoke();
 		}
 
-		public void Exit()
+		internal void Exit()
 		{
 			foreach (var listener in _listeners)
 			{
@@ -72,6 +75,11 @@ namespace HDyar.SimpleSOStateMachine
 			}
 		}
 
+		//Injecting dependency at runtime to avoid having every state needing to serialize a reference to itself.
+		internal void Init(StateMachine stateMachine)
+		{
+			_stateMachine = stateMachine;
+		}
 #if UNITY_EDITOR
 		public void OnValidate()
 		{
@@ -83,7 +91,6 @@ namespace HDyar.SimpleSOStateMachine
 			if (_stateMachine == null)
 			{
 				_stateMachine = AssetDatabase.LoadMainAssetAtPath(AssetDatabase.GetAssetPath(this)) as StateMachine;
-				
 			}
 		}
 #endif
